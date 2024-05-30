@@ -15,13 +15,19 @@
 // function Hello() {
 //     console.log("Hello World!!");
 // }
+
 // function num(cb) {
 //     console.log(1);
 //     console.log(2);
 //     cb();
 // }
 
+//not to pass callback with parenthesis
 //num(Hello);
+
+// num(() => {
+//     console.log("Hii");
+// })
 
 //Callback Hell
 // function data(id, adata){
@@ -80,14 +86,22 @@ function data(id){
 //     });
 // });
 
-
 // async & await
-async function get(){
-    await data(1);
-    //console.log("Getting data 2...");
-    await data(2);
-    //console.log("Getting data 3...");
-    await data(3);
-    //console.log("Getting data 4...");
-    await data(4);
-}
+
+//async function returns a promise
+//await is only used under aync
+// async function get(){
+//     await data(1);
+//     //console.log("Getting data 2...");
+//     await data(2);
+//     //console.log("Getting data 3...");
+//     await data(3);
+//     //console.log("Getting data 4...");
+//     await data(4);
+// }
+
+
+//IIFE(Immediately Invoked Function Expresson)
+// (() => {
+//     get();
+// })();
