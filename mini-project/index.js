@@ -1,9 +1,11 @@
-const BASE_URL = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies";
+// const BASE_URL = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies";
+const BASE_URL = "https://v6.exchangerate-api.com/v6/02abc140eb7eaa1b64897882/latest/";
 
 const dropdown = $("#selector select");
 const btn = $("form button");
 const to = $("#to select");
 const from = $("#from select");
+const msg = $("#msg");
 
 for (let select of dropdown){
     for(currCode in countryList){
@@ -24,14 +26,14 @@ for (let select of dropdown){
     });
 }
 
-function updateFlag(element) {
+async function updateFlag(element) {
     let currCode = element.value;
     let countryCode = countryList[currCode];
 
     let srcLink = `https://flagsapi.com/${countryCode}/shiny/64.png`;
 
     let img = $(element).prev();
-    img.attr("src", srcLink);
+    await img.attr("src", srcLink);
 }
 
 $(btn).click(async (evt) => {
@@ -44,7 +46,14 @@ $(btn).click(async (evt) => {
         $(amount).val("1");
     }
 
-    const URL = `${BASE_URL}/${$(from).val().toLowerCase()}/${$(to).val().toLowerCase()}.json`;
+    const URL = `${BASE_URL}/${$(from).val()}`;
 
     let response = await fetch(URL);
+    let data = await response.json();
+    let rate = data["conversion_rates"][$(to).val()];
+    
+    let finalValue = rate * amtValue;
+
+    $(msg).html(`${amtValue} ${$(from).val()} = ${finalValue} ${$(to).val()}`);
+
 });
