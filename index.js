@@ -1,9 +1,9 @@
-// Synchronized Operations
+//Synchronized Operations
 // console.log(1);
 // console.log(2);
 // console.log(3);
 
-// Asynchronized Operations
+//Asynchronized Operations
 // console.log(1);
 // setTimeout(() => {
 //     console.log("Hii");
@@ -22,8 +22,8 @@
 //     cb();
 // }
 
-// //not to pass callback with parenthesis
-// //num(Hello);
+//not to pass callback with parenthesis
+//num(Hello);
 
 // num(() => {
 //     console.log("Hii");
@@ -53,8 +53,8 @@
 //Promise
 // let promise = new Promise((resolve, reject) => {
 //     console.log("I am a promise");
-//     resolve("done");
-//     // reject("true");
+//     //resolve("done");
+//     reject("true");
 // });
 
 // promise.then((res) => {
@@ -90,18 +90,18 @@ function data(id){
 
 //async function returns a promise
 //await is only used under aync
-async function get(){
-    await data(1);
-    //console.log("Getting data 2...");
-    await data(2);
-    //console.log("Getting data 3...");
-    await data(3);
-    //console.log("Getting data 4...");
-    await data(4);
-}
+// async function get(){
+//     await data(1);
+//     //console.log("Getting data 2...");
+//     await data(2);
+//     //console.log("Getting data 3...");
+//     await data(3);
+//     //console.log("Getting data 4...");
+//     await data(4);
+// }
 
 
-// //IIFE(Immediately Invoked Function Expresson)
-(() => {
-    get();
-})();
+//IIFE(Immediately Invoked Function Expresson)
+// (() => {
+//     get();
+// })();
