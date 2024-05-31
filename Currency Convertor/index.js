@@ -36,8 +36,7 @@ async function updateFlag(element) {
     await img.attr("src", srcLink);
 }
 
-$(btn).click(async (evt) => {
-    evt.preventDefault();
+async function convert() {
     let amount = $(".amount input");
     let amtValue = $(amount).val();
 
@@ -55,5 +54,13 @@ $(btn).click(async (evt) => {
     let finalValue = rate * amtValue;
 
     $(msg).html(`${amtValue} ${$(from).val()} = ${finalValue} ${$(to).val()}`);
+}
 
+$(document).ready(() => {
+    convert();
+})
+
+$(btn).click((evt) => {
+    evt.preventDefault();
+    convert();
 });
